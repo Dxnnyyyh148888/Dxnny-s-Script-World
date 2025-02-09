@@ -2,74 +2,73 @@ local scr = Instance.new("ScreenGui")
 scr.Parent = game.Players.LocalPlayer.PlayerGui
 local main = Instance.new("Frame")
 main.Parent = scr
-main.Size = UDim2.new(0.25,0,0.8)
-main.Position = UDim2.new(0.1,0,0.05)
-main.BackgroundColor3 = Color3.fromRGB(255,255,255)
+main.Size = UDim2.new(0.25, 0, 0.8)
+main.Position = UDim2.new(0.1, 0, 0.05)
+main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 main.Active = true
 main.BorderSizePixel = 0
 main.Draggable = true
 local ll = Instance.new("TextLabel")
 ll.Parent = main
-ll.Size = UDim2.new(1,0,0.15)
-ll.BackgroundColor3 = Color3.fromRGB(0,140,170)
+ll.Size = UDim2.new(1, 0, 0.15)
+ll.BackgroundColor3 = Color3.fromRGB(0, 140, 170)
 ll.BorderSizePixel = 0
-ll.TextColor3 = Color3.fromRGB(255,255,255)
+ll.TextColor3 = Color3.fromRGB(255, 255, 255)
 ll.Font = Enum.Font.SourceSansBold
 ll.TextSize = 24
-ll.Text = "Loading" -- yes...
+ll.Text = "Loading"
 local opt = Instance.new("Frame")
 opt.Parent = ll
-opt.Size = UDim2.new(0,0,1)
-opt.BackgroundColor3 = Color3.fromRGB(200,200,200)
+opt.Size = UDim2.new(0, 0, 1)
+opt.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
 opt.BorderSizePixel = 0
 local r = Instance.new("TextButton")
 r.Parent = ll
-r.Size = UDim2.new(0.25,0,1)
+r.Size = UDim2.new(0.25, 0, 1)
 r.Text = "|||"
 r.TextScaled = true
-r.TextColor3 = Color3.fromRGB(255,255,255)
+r.TextColor3 = Color3.fromRGB(255, 255, 255)
 r.Rotation = 90
 r.BackgroundTransparency = 1
 local function open()
-    opt.Size = UDim2.new(0,0,1)
+    opt.Size = UDim2.new(0, 0, 1)
     local open = game:GetService("TweenService")
-    local opening = UDim2.new(0.4,0,1)
-    local ifg = TweenInfo.new(0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.Out)
-    local ply = open:Create(opt,ifg,{Size = opening})
+    local opening = UDim2.new(0.4, 0, 1)
+    local ifg = TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
+    local ply = open:Create(opt, ifg, {Size = opening})
     ply:Play()
 end
 local function close()
-    opt.Size = UDim2.new(0.4,0,1)
-    local closing = UDim2.new(0,0,1)
+    opt.Size = UDim2.new(0.4, 0, 1)
+    local closing = UDim2.new(0, 0, 1)
     local clos = game:GetService("TweenService")
-    local ifo = TweenInfo.New((0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.Out)
-    local ple = clos:Create(opt,ifo,{Size = closing})
+    local ifo = TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
+    local ple = clos:Create(opt, ifo, {Size = closing})
     ple:Play()
 end
 r.MouseButton1Click:Connect(function()
-open()
+    open()
 end)
 local clb = Instance.new("TextButton")
-clb.Size = UDim2.new(0.3,0,0.25)
-clb.Position = UDim2.new(0.7,0,0.05)
+clb.Size = UDim2.new(0.3, 0, 0.25)
+clb.Position = UDim2.new(0.7, 0, 0.05)
 clb.Text = "›"
 clb.TextScaled = true
 clb.Parent = opt
 clb.BackgroundTransparency = 1
-clb.TextColor3 = Color3.fromRGB(255,255,255)
+clb.TextColor3 = Color3.fromRGB(255, 255, 255)
 clb.MouseButton1Click:Connect(function()
-close()
+    close()
 end)
-ll.Text = "Loading ."
-wait(0.2)
-ll.Text = "Loading . ."
-wait(0.2)
-ll.Text = "Loading . . ."
-wait(0.02)
-ll.Text = "y's Sc"
-wait(0.02)
-ll.Text = "ny's Scr"
-wait(0.03)
-ll.Text = "xnny's Scrip"
-wait(0.04)
-ll.Text = "Dxnny's Script World"
+local textAnimation = {
+    "Loading .",
+    "Loading . .",
+    "Loading . . .",
+    "y's Sc",
+    "ny's Scr",
+    "xnny's Scrip",
+    "Dxnny's Script World"
+}
+for i, text in ipairs(textAnimation) do
+    ll.Text = text
+    wait(0.2)

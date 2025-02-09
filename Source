@@ -16,7 +16,7 @@ ll.BorderSizePixel = 0
 ll.TextColor3 = Color3.fromRGB(255, 255, 255)
 ll.Font = Enum.Font.SourceSansBold
 ll.TextSize = 24
-ll.Text = "Dxnny's ScriptWorld
+ll.Text = "Dxnny's ScriptWorld"
 
 local opt = Instance.new("Frame")
 opt.Parent = main

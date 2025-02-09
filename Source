@@ -1,5 +1,5 @@
 local scr = Instance.new("ScreenGui")
-scr.Parent = player.PlayerGui
+scr.Parent = game.Players.LocalPlayer.PlayerGui
 local main = Instance.new("Frame")
 main.Parent = scr
 main.Size = UDim2.new(0.25, 0, 0.8)

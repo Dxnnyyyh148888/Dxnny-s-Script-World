@@ -69,9 +69,10 @@ la.Parent = opt
 
 local name = Instance.new("TextLabel")
 name.Parent = la
-name.Size = UDim2.new(0.5, 0, 0.4)
+name.Size = UDim2.new(0.6, 0, 0.4)
 name.Position = UDim2.new(0.02, 0, 0.65)
 name.BackgroundTransparency = 1
+name.Font = Enum.Font.SourceSansBold
 name.Text = player.Name
 name.TextScaled = true
 name.TextColor3 = Color3.fromRGB(255, 255, 255)

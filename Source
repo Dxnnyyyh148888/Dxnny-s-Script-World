@@ -75,15 +75,15 @@ la.Parent = opt
 
 local name = Instance.new("TextLabel")
 name.Parent = la
-name.Size = UDim2.new(0.4, 0, 0.25)
+name.Size = UDim2.new(0.45, 0, 0.3)
 name.Position = UDim2.new(0.02, 0, 0.7)
 name.BackgroundTransparency = 1
 name.Text = player.Name
 name.TextScaled = true
-
+name.TextColor3 = Color3.fromRGB(255,255,255)
 local pfp = Instance.new("ImageLabel")
 pfp.Size = UDim2.new(0.3, 0, 0.25)
-pfp.Position = UDim2.new(0.02, 0, 0.35)
+pfp.Position = UDim2.new(0.02, 0, 0.3)
 pfp.BackgroundTransparency = 1
 pfp.Parent = la
 pfp.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. userId
@@ -109,10 +109,3 @@ local textAnimation = {
     "xnny's Scrip",
     "Dxnny's Script World"
 }
-
-while true do
-    for i, text in ipairs(textAnimation) do
-        ll.Text = text
-        wait(0.2)
-    end
-end

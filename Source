@@ -1,5 +1,9 @@
+local player = game.Players.LocalPlayer
+local userId = player.UserId
+
 local scr = Instance.new("ScreenGui")
-scr.Parent = game.Players.LocalPlayer.PlayerGui
+scr.Parent = player.PlayerGui
+
 local main = Instance.new("Frame")
 main.Parent = scr
 main.Size = UDim2.new(0.25, 0, 0.8)
@@ -8,6 +12,7 @@ main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 main.Active = true
 main.BorderSizePixel = 0
 main.Draggable = true
+
 local ll = Instance.new("TextLabel")
 ll.Parent = main
 ll.Size = UDim2.new(1, 0, 0.15)
@@ -17,61 +22,72 @@ ll.TextColor3 = Color3.fromRGB(255, 255, 255)
 ll.Font = Enum.Font.SourceSansBold
 ll.TextSize = 24
 ll.Text = "Loading"
+
 local opt = Instance.new("Frame")
 opt.Parent = main
 opt.Size = UDim2.new(0, 0, 1)
-opt.BackgroundColor3 = Color3.fromRGB(255,255,255)
+opt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 opt.BorderSizePixel = 0
+
 local r = Instance.new("TextButton")
 r.Parent = ll
 r.Size = UDim2.new(0.1, 0, 0.8)
-r.Position = UDim2.new(0.03,0,0.1)
+r.Position = UDim2.new(0.03, 0, 0.1)
 r.Text = "|||"
 r.TextScaled = true
 r.TextColor3 = Color3.fromRGB(255, 255, 255)
 r.Rotation = 90
 r.BackgroundTransparency = 1
+
 local function open()
-    ll.BackgroundColor3 = Color3.fromRGB(0,100,140)
-    main.BackgroundColor3 = Color3.fromRGB(200,200,200)
-    opt.Size = UDim2.new(0, 0, 1)
+    ll.BackgroundColor3 = Color3.fromRGB(0, 100, 140)
+    main.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
     local open = game:GetService("TweenService")
     local opening = UDim2.new(0.4, 0, 1)
     local ifg = TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
     local ply = open:Create(opt, ifg, {Size = opening})
     ply:Play()
 end
+
 local function close()
-    ll.backgroundColor3 = Color3.fromRGB(0,140,170)
-    main.BackgroundColor3 = Color3.fromRGB(255,255,255
-    opt.Size = UDim2.new(0.4, 0, 1)
+    ll.BackgroundColor3 = Color3.fromRGB(0, 140, 170)
+    main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     local closing = UDim2.new(0, 0, 1)
     local clos = game:GetService("TweenService")
     local ifo = TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
     local ple = clos:Create(opt, ifo, {Size = closing})
     ple:Play()
 end
+
 r.MouseButton1Click:Connect(function()
-    open()
+    if opt.Size == UDim2.new(0, 0, 1) then
+        open()
+    else
+        close()
+    end
 end)
+
 local la = Instance.new("Frame")
-la.Size = UDim2.new(1,0,0.2)
-la.BackgroundColor3 = Color3.fromRGB(0,100,140)
+la.Size = UDim2.new(1, 0, 0.2)
+la.BackgroundColor3 = Color3.fromRGB(0, 100, 140)
 la.BorderSizePixel = 0
 la.Parent = opt
-local name = Instance.new("TexxLabel")
+
+local name = Instance.new("TextLabel")
 name.Parent = la
-name.Size = UDim2.new(0.4,0,0.25)
-name.Position = UDim2.new(0.02,0,0.7)
+name.Size = UDim2.new(0.4, 0, 0.25)
+name.Position = UDim2.new(0.02, 0, 0.7)
 name.BackgroundTransparency = 1
 name.Text = player.Name
 name.TextScaled = true
+
 local pfp = Instance.new("ImageLabel")
-pfp.Size = UDim2.new(0.3,0,0.25)
-pfp.Position = UDim2.new(0.02,0,0.35)
+pfp.Size = UDim2.new(0.3, 0, 0.25)
+pfp.Position = UDim2.new(0.02, 0, 0.35)
 pfp.BackgroundTransparency = 1
 pfp.Parent = la
 pfp.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. userId
+
 local clb = Instance.new("TextButton")
 clb.Size = UDim2.new(0.3, 0, 0.25)
 clb.Position = UDim2.new(0.7, 0, 0.01)
@@ -81,8 +97,9 @@ clb.Parent = opt
 clb.BackgroundTransparency = 1
 clb.TextColor3 = Color3.fromRGB(255, 255, 255)
 clb.MouseButton1Click:Connect(function()
-close()
+    close()
 end)
+
 local textAnimation = {
     "Loading .",
     "Loading . .",
@@ -92,7 +109,10 @@ local textAnimation = {
     "xnny's Scrip",
     "Dxnny's Script World"
 }
-for i, text in ipairs(textAnimation) do
-    ll.Text = text
-    wait(0.2)
+
+while true do
+    for i, text in ipairs(textAnimation) do
+        ll.Text = text
+        wait(0.2)
+    end
 end

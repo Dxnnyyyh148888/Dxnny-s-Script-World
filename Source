@@ -21,7 +21,7 @@ ll.BorderSizePixel = 0
 ll.TextColor3 = Color3.fromRGB(255, 255, 255)
 ll.Font = Enum.Font.SourceSansBold
 ll.TextSize = 24
-ll.Text = "Loading"
+ll.Text = "Dxxny's ScriptWorld"
 
 local opt = Instance.new("Frame")
 opt.Parent = main
@@ -99,13 +99,3 @@ clb.TextColor3 = Color3.fromRGB(255, 255, 255)
 clb.MouseButton1Click:Connect(function()
     close()
 end)
-
-local textAnimation = {
-    "Loading .",
-    "Loading . .",
-    "Loading . . .",
-    "y's Sc",
-    "ny's Scr",
-    "xnny's Scrip",
-    "Dxnny's Script World"
-}

@@ -18,7 +18,7 @@ ll.Font = Enum.Font.SourceSansBold
 ll.TextSize = 24
 ll.Text = "Loading"
 local opt = Instance.new("Frame")
-opt.Parent = ll
+opt.Parent = main
 opt.Size = UDim2.new(0, 0, 1)
 opt.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
 opt.BorderSizePixel = 0
@@ -32,6 +32,7 @@ r.TextColor3 = Color3.fromRGB(255, 255, 255)
 r.Rotation = 90
 r.BackgroundTransparency = 1
 local function open()
+    r.Visible = false
     opt.Size = UDim2.new(0, 0, 1)
     local open = game:GetService("TweenService")
     local opening = UDim2.new(0.4, 0, 1)
@@ -40,6 +41,7 @@ local function open()
     ply:Play()
 end
 local function close()
+    r.Visible = true
     opt.Size = UDim2.new(0.4, 0, 1)
     local closing = UDim2.new(0, 0, 1)
     local clos = game:GetService("TweenService")
@@ -55,7 +57,7 @@ clb.Size = UDim2.new(0.3, 0, 0.25)
 clb.Position = UDim2.new(0.7, 0, 0.05)
 clb.Text = "›"
 clb.TextScaled = true
-clb.Parent = main
+clb.Parent = opt
 clb.BackgroundTransparency = 1
 clb.TextColor3 = Color3.fromRGB(255, 255, 255)
 clb.MouseButton1Click:Connect(function()

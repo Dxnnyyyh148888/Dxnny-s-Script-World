@@ -18,6 +18,7 @@ ll.Font = Enum.Font.SourceSansBold
 ll.TextSize = 24
 ll.Text = "Loading" -- yes...
 local opt = Instance.new("Frame")
+opt.Parent = ll
 opt.Size = UDim2.new(0,0,1)
 opt.BackgroundColor3 = Color3.fromRGB(200,200,200)
 opt.BorderSizePixel = 0
@@ -33,7 +34,7 @@ local function open()
     opt.Size = UDim2.new(0,0,1)
     local open = game:GetService("TweenService")
     local opening = UDim2.new(0.4,0,1)
-    local ifg = TweenInfo.new(0.5,Enum.EasingStyle.Quint,EasingDirection.Out)
+    local ifg = TweenInfo.new(0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.Out)
     local ply = open:Create(opt,ifg,{Size = opening})
     ply:Play()
 end
@@ -41,7 +42,7 @@ local function close()
     opt.Size = UDim2.new(0.4,0,1)
     local closing = UDim2.new(0,0,1)
     local clos = game:GetService("TweenService")
-    local ifo = TweenInfo.New((0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.Out
+    local ifo = TweenInfo.New((0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.Out)
     local ple = clos:Create(opt,ifo,{Size = closing})
     ple:Play()
 end

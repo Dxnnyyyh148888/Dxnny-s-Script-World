@@ -72,3 +72,4 @@ local textAnimation = {
 for i, text in ipairs(textAnimation) do
     ll.Text = text
     wait(0.2)
+end

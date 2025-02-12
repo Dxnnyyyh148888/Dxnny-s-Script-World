@@ -96,3 +96,17 @@ clb.Parent = opt
 clb.BackgroundTransparency = 1
 clb.TextColor3 = Color3.fromRGB(255, 255, 255)
 clb.MouseButton1Click:Connect(togglePanel)
+local scrl = Instance.new("ScrollingFrame")
+scrl.Parent = main
+scrl.Size = UDim2.new(1,0,0.85)
+scrl.Position = UDim2.new(0,0,0.15)
+scrl.BackgroundColor3 = Color3.fromRGB(255,255,255)
+scrl.BorderSizePixel = 0
+local b1.Instance.new("TextButton")
+b1.Parent = scrl
+b1.Size = UDim2.new(1,0,0.05)
+b1.BackgroundColor3 = Color3.fromRGB(255,255,200)
+b1.BorderSizePixel = 0
+b1.MouseButton1Click:Connect(function()
+
+end)
